@@ -1,9 +1,15 @@
 package ticket
 
-type TicketSeller struct {
-	TicketOffice *TicketOffice
+type ticketSeller struct {
+	ticketOffice TicketOffice
 }
 
-func (s *TicketSeller) GetTicketOffice() *TicketOffice {
-	return s.TicketOffice
+func NewTiketSeller(ticketOffice TicketOffice) *ticketSeller {
+	return &ticketSeller{
+		ticketOffice: ticketOffice,
+	}
+}
+
+func (s *ticketSeller) SellTo(a Audience) {
+	s.ticketOffice.SellTicketTo(a)
 }

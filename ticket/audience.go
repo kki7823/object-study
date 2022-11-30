@@ -1,9 +1,9 @@
 package ticket
 
 type Audience struct {
-	Bag *Bag
+	bag *Bag
 }
 
-func (a *Audience) GetBag() *Bag {
-	return a.Bag
+func (a *Audience) Buy(ticket *Ticket) int64 {
+	return a.bag.Hold(ticket)
 }
